@@ -4,7 +4,7 @@
       <v-carousel 
       :show-arrows="false" 
       hide-delimiter-background
-      delimiter-icon="mdi mdi-circle"
+      delimiter-icon="mdi mdi-cat"
       light
       height="400"
       cycle 
@@ -31,9 +31,11 @@
         </h4>
     </v-container>
     <v-container class="text-center">
-        <v-btn dark class="rounded-lg primary" style ="text-transform: none;">
-          Masuk
-        </v-btn>
+        <NuxtLink to="/home">
+          <v-btn dark class="rounded-lg warning" style ="text-transform: none;">
+            Masuk
+          </v-btn>
+        </NuxtLink>
     </v-container>
   </div>
 </template>
@@ -43,6 +45,9 @@ import colors from 'vuetify/es5/util/colors';
 
 export default {
   name: 'IndexPage',
+  mounted(){
+    this.$store.commit('global/set_path', '/')
+  },  
   data(){
     return {
       items: [
@@ -64,7 +69,11 @@ export default {
 }
 </script>
 <style>
-.v-btn > .v-btn__content .v-icon {
+/* .v-btn > .v-btn__content .v-icon {
   color: #1976d2;
+} */
+
+.v-carousel__controls__item{
+  margin: 0 0px;
 }
 </style>
